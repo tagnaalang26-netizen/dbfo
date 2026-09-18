@@ -1,0 +1,30 @@
+{
+    "$schema": "https://openapi.vercel.sh/vercel.json",
+    "framework": null,
+    "buildCommand": "npm run build && node scripts/vercel-static.mjs",
+    "outputDirectory": ".vercel-static",
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.9.0",
+            "excludeFiles": "{node_modules/**,.git/**,.env,.env.*,tests/**,storage/logs/**,storage/framework/**,public/hot,.vercel-static/**}"
+        }
+    },
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/(.*)", "dest": "/api/index.php" }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "LOG_CHANNEL": "stderr",
+        "SESSION_DRIVER": "database",
+        "SESSION_SECURE_COOKIE": "true",
+        "CACHE_STORE": "database",
+        "APP_CONFIG_CACHE": "/tmp/dfbo/config.php",
+        "APP_EVENTS_CACHE": "/tmp/dfbo/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/dfbo/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/dfbo/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/dfbo/services.php",
+        "VIEW_COMPILED_PATH": "/tmp/dfbo/framework/views"
+    }
+}

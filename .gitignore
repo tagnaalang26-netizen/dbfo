@@ -8,6 +8,8 @@
 /storage/*.key
 /storage/pail
 /vendor
+/.vercel
+/.vercel-static
 .DS_Store
 .env
 .env.backup
